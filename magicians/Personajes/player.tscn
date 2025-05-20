@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs4dn1weipj1v"]
+
+[ext_resource type="Script" uid="uid://bg5pgacqo248v" path="res://Script/player.gd" id="1_1jrbx"]
+[ext_resource type="Texture2D" uid="uid://vxb2e4ouvnm" path="res://Asset/y_mage.png" id="1_ivbph"]
+[ext_resource type="PackedScene" uid="uid://83yhdapd0k8r" path="res://Proyectiles/spell_p.tscn" id="2_68rsh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68rsh"]
+size = Vector2(23, 28)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(-1, -1)
+collision_mask = 4
+script = ExtResource("1_1jrbx")
+projectile_scene = ExtResource("2_68rsh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ivbph")
+
+[node name="fire_point" type="Marker2D" parent="Sprite2D"]
+position = Vector2(31, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 2)
+shape = SubResource("RectangleShape2D_68rsh")

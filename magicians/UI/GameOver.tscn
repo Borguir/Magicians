@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://5p8yyk827vjc"]
+
+[ext_resource type="Script" uid="uid://drnbi1hdtejlk" path="res://Script/game_over.gd" id="1_kjexa"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchor_right = 0.05
+anchor_bottom = 0.072
+offset_right = -57.6
+offset_bottom = -46.656
+script = ExtResource("1_kjexa")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 882.0
+offset_bottom = 445.0
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 3.0
+offset_right = 556.0
+offset_bottom = 331.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "PRESIONA \"R\" PARA REINICIAR"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "MENU"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

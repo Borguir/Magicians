@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://m1jpvidllad0"]
+
+[ext_resource type="Script" uid="uid://dn6upmr4tfh2m" path="res://Script/mage.gd" id="1_ra1uw"]
+[ext_resource type="PackedScene" uid="uid://loh6p0rm6wrf" path="res://Proyectiles/spell.tscn" id="2_4wlcm"]
+[ext_resource type="Texture2D" uid="uid://csdn3c3l2bnpw" path="res://Asset/Mage file.png" id="2_sy5k2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wlcm"]
+size = Vector2(22, 27)
+
+[node name="mage" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("1_ra1uw")
+spell_scene = ExtResource("2_4wlcm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sy5k2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2.5)
+shape = SubResource("RectangleShape2D_4wlcm")
+
+[node name="fire_point" type="Marker2D" parent="."]
+position = Vector2(25, -5)
+
+[node name="Timer" type="Timer" parent="."]

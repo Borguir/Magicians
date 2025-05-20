@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpuicblfl83fo"]
+
+[ext_resource type="PackedScene" uid="uid://bs4dn1weipj1v" path="res://Personajes/player.tscn" id="1_ijush"]
+[ext_resource type="PackedScene" uid="uid://m1jpvidllad0" path="res://Personajes/mage.tscn" id="2_ijush"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gnf1b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnf1b"]
+size = Vector2(1055, 20)
+
+[node name="Nivel1" type="Node2D"]
+
+[node name="Nivel1" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 543.0
+offset_top = 313.0
+offset_right = 605.0
+offset_bottom = 336.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Nivel 1!!"
+
+[node name="Player" parent="." instance=ExtResource("1_ijush")]
+position = Vector2(413, 196)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(574, 383)
+collision_layer = 15
+physics_material_override = SubResource("PhysicsMaterial_gnf1b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-24, -127)
+shape = SubResource("RectangleShape2D_gnf1b")
+
+[node name="mage" parent="." instance=ExtResource("2_ijush")]
+position = Vector2(114, 231)

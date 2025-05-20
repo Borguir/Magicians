@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://loh6p0rm6wrf"]
+
+[ext_resource type="Texture2D" uid="uid://rwqiq253et80" path="res://Asset/spell2.png" id="1_72k4l"]
+[ext_resource type="Script" uid="uid://cuqh564yrqd0r" path="res://Script/spell.gd" id="1_bco5r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bco5r"]
+radius = 4.0
+
+[node name="spell" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_bco5r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_72k4l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bco5r")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
