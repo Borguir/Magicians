@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bx77u8hmyk1d2"]
+
+[ext_resource type="Texture2D" uid="uid://dabj1wcpki4l7" path="res://Asset/CorineMagica2.png" id="1_chxhq"]
+[ext_resource type="Script" uid="uid://bebixtk5dr1f1" path="res://Script/the_big_big_boss.gd" id="1_qcbuw"]
+[ext_resource type="Shader" uid="uid://ccvx6x8ssehy1" path="res://Script/the_big_big_boss.gdshader" id="2_02akh"]
+[ext_resource type="Texture2D" uid="uid://bhc5txe3nooic" path="res://Asset/Shield.png" id="3_02akh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g235a"]
+shader = ExtResource("2_02akh")
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1y4ia"]
+size = Vector2(25, 26)
+
+[node name="TheBigBigBoss" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_qcbuw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_g235a")
+texture = ExtResource("1_chxhq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_1y4ia")
+
+[node name="Shield" type="Sprite2D" parent="."]
+texture = ExtResource("3_02akh")
+
+[node name="FirePoint" type="Marker2D" parent="."]
+position = Vector2(0, -32)
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="VulnerableTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="ShieldReturnTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
